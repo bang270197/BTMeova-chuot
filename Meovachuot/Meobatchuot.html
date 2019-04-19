@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function Mouse(name,weight,speed) {
+        this.name=name;
+        this.weight=weight;
+        this.speed=speed;
+        this.say="";
+        this.status=true;
+        this.setSay=function (say) {
+            this.say=say;
+        }
+        this.getSay=function () {
+            console.log("chuot keu: "+this.say);
+
+        }
+        this.setName=function (name) {
+            this.name=name;
+        }
+        this.getName=function (name) {
+            return this.name;
+        }
+        this.setWeight=function (weight) {
+            this.weight=weight;
+        }
+        this.getWeight=function () {
+            return this.weight;
+        }
+        this.setSpeed=function (speed) {
+            this.speed=speed;
+        }
+        this.getSpeed=function () {
+            return this.speed;
+        }
+        this.checkstatusmouse=function () {
+            if(this.status==true)
+            {
+                console.log("chuot con song!!");
+            }else {
+                console.log("Chuot da chet");
+            }
+        }
+    }
+    function cat(name,weight,speed) {
+        this.name=name;
+        this.weight=weight;
+        this.speed=speed;
+        this.say="";
+        this.status=false;
+        this.setSay=function (say) {
+            this.say=say;
+        }
+        this.getSay=function () {
+           console.log("Meo keu :"+this.say);
+        }
+        this.setName=function (name) {
+            this.name=name;
+        }
+        this.getName=function (name) {
+            return this.name;
+        }
+        this.setWeight=function (weight) {
+            this.weight=weight;
+        }
+        this.getWeight=function () {
+            return this.weight;
+        }
+        this.setSpeed=function (speed) {
+            this.speed=speed;
+        }
+        this.getSpeed=function () {
+            return this.speed;
+        }
+        this.catchMouse=function (Mouse) {
+            if(this.speed > Mouse.speed){
+                console.log("Meo da bat duoc chuot");
+                this.status=true;
+            }else {
+                console.log("Meo khong duoi duong chuot do toc do cham hon");
+            }
+        }
+        this.eatMouse=function (Mouse) {
+            if(this.status==true && Mouse.status==true){
+               console.log("Meo da bat duoc chuot va dang an thit chuot");
+                Mouse.status=false;
+                this.weight++;
+            }else if (this.status==false || Mouse.status==false) {
+                console.log("Meo chua  duoi chuot hoac chuot da chet")
+            }
+        }
+    }
+    let m=new Mouse();
+    let c=new cat();
+    m.setName("jery");
+    m.setWeight(10);
+    m.setSpeed(5);
+    console.log("Ten chua chuot: "+m.getName()+"/ Can nang cua chuot : "+m.getWeight()+"/ Toc do cua chuot :"+m.getSpeed());
+     m.checkstatusmouse();
+    c.setName("Tom");
+    c.setWeight(10);
+    c.setSpeed(4);
+    console.log("Ten cua meo: "+c.getName()+"/ Can nang cua meo : "+c.getWeight()+"/ Toc do cua meo :"+c.getSpeed());
+    c.eatMouse();
+    c.catchMouse(m);
+    c.setSpeed(6);
+    c.catchMouse(m);
+    c.eatMouse(m);
+    m.checkstatusmouse();
+    c.eatMouse(m);
+    m.setSay("chit chit");
+  m.getSay();
+   c.setSay("meo meo");
+   c.getSay();
+</script>
+</body>
+</html>
